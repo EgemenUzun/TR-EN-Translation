@@ -1,0 +1,5 @@
+*-cv-corpus-*
+ready_covost_dataset/
+hazir_covost_verisi/
+test_outputs/
+*.tsv
