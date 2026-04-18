@@ -1,4 +1,5 @@
 import torch
+import librosa
 from datasets import load_from_disk
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 import evaluate
@@ -7,7 +8,7 @@ from tqdm import tqdm
 def main():
     # 1. Load the preprocessed dataset
     print("Loading dataset...")
-    dataset = load_from_disk("hazir_covost_verisi")
+    dataset = load_from_disk("ready_covost_dataset")
     
     # Shuffle and select a smaller subset (100 samples) for quick evaluation
     # Set seed for reproducibility
@@ -41,9 +42,12 @@ def main():
     print("\nStarting evaluation on 100 samples...")
     # 4. Evaluation Loop using tqdm for progress tracking
     for item in tqdm(subset_dataset, desc="Evaluating Cascade System"):
-        audio_array = item["audio_path"]["array"]
+        audio_file_path = item["audio_path"]
         true_tr_text = item["sentence"]
         true_en_text = item["translation"]
+        
+        # Load audio manually using librosa at 16kHz
+        audio_array, _ = librosa.load(audio_file_path, sr=16000)
         
         # --- ASR Stage ---
         asr_result = asr_pipe(audio_array, generate_kwargs={"language": "turkish", "suppress_tokens": ""})
