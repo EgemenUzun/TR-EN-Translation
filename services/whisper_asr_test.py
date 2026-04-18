@@ -1,4 +1,5 @@
 import torch
+import librosa
 from datasets import load_from_disk
 from transformers import pipeline
 
@@ -22,16 +23,15 @@ def main():
     print("\n" + "="*50)
     print("STARTING WHISPER ASR TEST")
     print("="*50 + "\n")
-
-    # 4. Run test on the first 5 samples
-    for i in range(5):
-        audio_sample = dataset[i]["audio_path"]["array"]
+    # 4. Run test on the first 100 samples
+    for i in range(100):
+        audio_file_path = dataset[i]["audio_path"]
         ground_truth_tr = dataset[i]["sentence"]
         
-        # Perform transcription
-        # Note: language="turkish" is passed to ensure the model focuses on TR
+        audio_array, _ = librosa.load(audio_file_path, sr=16000)
+        
         result = asr_pipe(
-            audio_sample, 
+            audio_array, 
             generate_kwargs={"language": "turkish", "suppress_tokens": ""}
         )
         predicted_tr = result["text"].strip()
