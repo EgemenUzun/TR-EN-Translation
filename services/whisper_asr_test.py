@@ -12,10 +12,10 @@ def main():
     print(f"Using device: {device}")
 
     # 3. Initialize Whisper model (using 'small' for better Turkish accuracy)
-    print("Loading Whisper 'small' model...")
+    print("Loading Whisper 'large-v3' model...")
     asr_pipe = pipeline(
         "automatic-speech-recognition", 
-        model="openai/whisper-small", 
+        model="openai/whisper-large-v3", 
         device=device
     )
 
