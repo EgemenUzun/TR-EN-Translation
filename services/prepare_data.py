@@ -1,86 +1,34 @@
-import torch
-from datasets import load_from_disk
-from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
-import evaluate
-from tqdm import tqdm
+import os
+import pandas as pd
+from datasets import Dataset, Audio
 
-def main():
-    # 1. Load the preprocessed dataset
-    print("Loading dataset...")
-    # Updated to match the new English directory name
-    dataset = load_from_disk("ready_covost_dataset")
-    
-    total_samples = len(dataset)
-    print(f"Total samples to evaluate: {total_samples}")
+# --- ENTER DIRECTORY PATHS HERE ---
+# File containing Turkish texts from the downloaded Common Voice folder
+cv_tsv_path = "../1774205200568-cv-corpus-25.0-2026-03-09-tr/cv-corpus-25.0-2026-03-09/tr/validated.tsv" 
+# File containing English translations downloaded from Meta
+covost_tsv_path = "../covost_v2.tr_en.tsv"   
+# Folder containing the audio files
+clips_folder = "../1774205200568-cv-corpus-25.0-2026-03-09-tr/cv-corpus-25.0-2026-03-09/tr/clips"        
 
-    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+print("1. Reading TSV files...")
+cv_df = pd.read_csv(cv_tsv_path, sep='\t', low_memory=False)
+covost_df = pd.read_csv(covost_tsv_path, sep='\t', low_memory=False)
 
-    # 2. Load Models
-    print(f"Loading ASR and MT models on {device}...")
-    asr_pipe = pipeline(
-        "automatic-speech-recognition", 
-        model="openai/whisper-small", 
-        device=device
-    )
-    
-    mt_tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-tr-en")
-    mt_model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-tr-en").to(device)
+print("2. Matching Turkish texts with English translations...")
+merged_df = pd.merge(cv_df, covost_df, on='path', how='inner')
+print(f"Total matching rows: {len(merged_df)}")
 
-    # 3. Load Evaluation Metrics
-    wer_metric = evaluate.load("wer")
-    bleu_metric = evaluate.load("sacrebleu")
-    chrf_metric = evaluate.load("chrf")
+print("3. Checking if files exist on disk...")
+merged_df['audio_path'] = merged_df['path'].apply(lambda x: os.path.join(clips_folder, x))
+merged_df = merged_df[merged_df['audio_path'].apply(os.path.exists)]
+print(f"Number of available valid audio files: {len(merged_df)}")
 
-    # Storage for predictions and references
-    asr_predictions = []
-    asr_references = []
-    
-    mt_predictions = []
-    mt_references = []
+print("4. Creating Hugging Face Dataset...")
+final_df = merged_df[['audio_path', 'sentence', 'translation']]
+dataset = Dataset.from_pandas(final_df, preserve_index=False)
+dataset = dataset.cast_column("audio_path", Audio(sampling_rate=16000))
 
-    print(f"\nStarting full evaluation on {total_samples} samples...")
-    print("NOTE: This might take a while depending on your GPU speed!")
-    
-    # 4. Evaluation Loop using tqdm for progress tracking
-    for item in tqdm(dataset, desc="Evaluating Cascade System (Full)"):
-        audio_array = item["audio_path"]["array"]
-        true_tr_text = item["sentence"]
-        true_en_text = item["translation"]
-        
-        # --- ASR Stage ---
-        asr_result = asr_pipe(audio_array, generate_kwargs={"language": "turkish", "suppress_tokens": ""})
-        pred_tr_text = asr_result["text"].strip()
-        
-        # --- MT Stage ---
-        pred_en_text = ""
-        if pred_tr_text: # Ensure ASR output is not empty
-            inputs = mt_tokenizer(pred_tr_text, return_tensors="pt", padding=True).to(device)
-            outputs = mt_model.generate(**inputs)
-            pred_en_text = mt_tokenizer.decode(outputs[0], skip_special_tokens=True)
-            
-        # Append to lists
-        asr_predictions.append(pred_tr_text if pred_tr_text else " ")
-        asr_references.append(true_tr_text if true_tr_text else " ")
-        
-        mt_predictions.append(pred_en_text if pred_en_text else " ")
-        mt_references.append([true_en_text])
-
-    # 5. Compute Metrics
-    print("\nComputing final scores...")
-    
-    wer_score = wer_metric.compute(predictions=asr_predictions, references=asr_references)
-    bleu_score = bleu_metric.compute(predictions=mt_predictions, references=mt_references)
-    chrf_score = chrf_metric.compute(predictions=mt_predictions, references=mt_references)
-
-    # 6. Display Results
-    print("="*40)
-    print("FULL CASCADE SYSTEM EVALUATION RESULTS")
-    print("="*40)
-    print(f"Total Samples Evaluated : {total_samples}")
-    print(f"ASR WER (Word Error Rate) : {wer_score * 100:.2f}% (Lower is better)")
-    print(f"MT  BLEU Score            : {bleu_score['score']:.2f} (Higher is better)")
-    print(f"MT  chrF Score            : {chrf_score['score']:.2f} (Higher is better)")
-    print("="*40)
-
-if __name__ == "__main__":
-    main()
+print("\n--- PROCESS COMPLETE! ---")
+# Save this clean dataset to a folder
+dataset.save_to_disk("ready_covost_dataset")
+print("\nDataset successfully saved to the 'ready_covost_dataset' directory!")
