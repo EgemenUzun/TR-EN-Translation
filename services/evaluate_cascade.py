@@ -20,12 +20,20 @@ def main():
     print(f"Loading ASR and MT models on {device}...")
     asr_pipe = pipeline(
         "automatic-speech-recognition", 
-        model="openai/whisper-small", 
+        model="openai/whisper-large-v3",
         device=device
     )
     
-    mt_tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-tr-en")
-    mt_model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-tr-en").to(device)
+    mt_model_name = "facebook/nllb-200-distilled-600M" # Helsinki-NLP/opus-mt-tc-big-tr-en # Helsinki-NLP/opus-mt-tr-en
+    # NLLB requires explicitly defining the source language (tur_Latn for Turkish) 
+    mt_tokenizer = AutoTokenizer.from_pretrained(mt_model_name, src_lang="tur_Latn") 
+    mt_model = AutoModelForSeq2SeqLM.from_pretrained(mt_model_name).to(device)
+
+    # mt_tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-tr-en")
+    # mt_model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-tr-en").to(device)
+    
+    # mt_tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-tc-big-tr-en")
+    # mt_model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-tc-big-tr-en").to(device)
 
     # 3. Load Evaluation Metrics
     wer_metric = evaluate.load("wer")
