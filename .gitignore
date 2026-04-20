@@ -2,6 +2,8 @@
 ready_covost_dataset/
 hazir_covost_verisi/
 test_outputs/
+*_results/
+*_results_old/
 *.tsv
 .vscode/
 *.log

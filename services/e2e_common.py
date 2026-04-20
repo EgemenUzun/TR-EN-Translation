@@ -22,9 +22,9 @@ from transformers import (
 SERVICES_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SERVICES_DIR.parent
 
-DATASET_PATH = REPO_ROOT / "ready_covost_dataset"
-E2E_OUTPUT_DIR = REPO_ROOT / "e2e_full_results"
-E2E_BEST_MODEL_DIR = E2E_OUTPUT_DIR / "best_model"
+DATASET_PATH = Path("ready_covost_dataset")
+E2E_OUTPUT_DIR = Path("e2e_full_results")
+E2E_BEST_MODEL_DIR = Path(f"{E2E_OUTPUT_DIR}/best_model")
 
 ENCODER_MODEL_ID = "facebook/wav2vec2-large-xlsr-53"
 DECODER_MODEL_ID = "Helsinki-NLP/opus-mt-tr-en"
