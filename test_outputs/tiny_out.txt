@@ -1,0 +1,12 @@
+Örnek 1:
+Gerçekte Söylenen : Seydiu şimdi iki mevkiyi de kaybetti.
+Whisper'ın Duyduğu: Sevdiyor, şimdi iki mevkide kaybettiği.
+----------------------------------------
+Örnek 2:
+Gerçekte Söylenen : Siyasette temiz insanlara ihtiyacımız var.
+Whisper'ın Duyduğu: Siyası tetimizin sonu bekliyordun süreceğim.
+----------------------------------------
+Örnek 3:
+Gerçekte Söylenen : Broz, büyükbabasının başarılarını gururla anıyor.
+Whisper'ın Duyduğu: Burası, büyük babasının başlarlarını grurla anıyor.
+----------------------------------------

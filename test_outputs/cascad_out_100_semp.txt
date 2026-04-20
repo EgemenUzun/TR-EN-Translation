@@ -1,0 +1,7 @@
+Computing final scores...
+========================================
+CASCADE SYSTEM EVALUATION RESULTS (100 Samples)
+========================================
+ASR WER (Word Error Rate) : 33.98% (Lower is better)
+MT  BLEU Score            : 21.66 (Higher is better)
+MT  chrF Score            : 47.58 (Higher is better)

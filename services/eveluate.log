@@ -1,0 +1,13 @@
+1. Loading Fully-Trained E2E Model on cuda:0...
+2. Loading dataset...
+
+3. Starting Evaluation on 100 samples...
+
+4. Computing final scores...
+==================================================
+FULL END-TO-END SYSTEM EVALUATION RESULTS (100 Samples)
+==================================================
+ASR WER (Word Error Rate) : N/A (E2E skips Turkish text!)
+MT  BLEU Score            : 0.00 (Higher is better)
+MT  chrF Score            : 0.00 (Higher is better)
+==================================================

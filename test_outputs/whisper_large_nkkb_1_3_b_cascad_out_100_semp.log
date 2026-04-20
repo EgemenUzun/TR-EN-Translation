@@ -1,0 +1,13 @@
+Loading dataset...
+Loading ASR and MT models on cuda:0...
+
+Starting evaluation on 100 samples...
+
+Computing final scores...
+========================================
+CASCADE SYSTEM EVALUATION RESULTS (100 Samples)
+========================================
+ASR WER (Word Error Rate) : 21.37% (Lower is better)
+MT  BLEU Score            : 16.06 (Higher is better)
+MT  chrF Score            : 36.96 (Higher is better)
+========================================

@@ -1,0 +1,408 @@
+Loading preprocessed dataset...
+Using device: cuda:0
+Loading Whisper 'large-v3' model...
+
+==================================================
+STARTING WHISPER ASR TEST
+==================================================
+
+Sample #1
+Ground Truth (TR): Seydiu şimdi iki mevkiyi de kaybetti.
+Whisper Output (TR): Seydiu şimdiki mevkii de kaybetti.
+------------------------------
+Sample #2
+Ground Truth (TR): Siyasette temiz insanlara ihtiyacımız var.
+Whisper Output (TR): Siyasette temiz insanlara ihtiyacımız var.
+------------------------------
+Sample #3
+Ground Truth (TR): Broz, büyükbabasının başarılarını gururla anıyor.
+Whisper Output (TR): Broz, büyük babasının başarılarını gururla anıyor.
+------------------------------
+Sample #4
+Ground Truth (TR): Calasan yetenekli çocuk bursu da aldı.
+Whisper Output (TR): Calasım yetenekli çocuk bursu da aldı.
+------------------------------
+Sample #5
+Ground Truth (TR): Referandum tarihi henüz belirlenmedi.
+Whisper Output (TR): Referandum tarihi henüz belirlenmedi.
+------------------------------
+Sample #6
+Ground Truth (TR): Her yaştan takasçı geliyor.
+Whisper Output (TR): Her yaştan takasçı geliyor.
+------------------------------
+Sample #7
+Ground Truth (TR): Atık yönetimi bir ülkenin yaşam tarzını yansıtır.
+Whisper Output (TR): Atatürk öğretmeni ve ülkenin yaşam tarzında yansıttı.
+------------------------------
+Sample #8
+Ground Truth (TR): Hükümetin değişmesi halinde müzakereler ve katılım süreci ne yönde etkilenir?
+Whisper Output (TR): Hükümetin değişmesi halinde müzakereler ve katılım süreci ne yönde etkilenir?
+------------------------------
+Sample #9
+Ground Truth (TR): Etkinlik yirmi iki Mayıs'a kadar açık kalacak.
+Whisper Output (TR): Etkinlik 22 Mayıs'a kadar açık kalacak.
+------------------------------
+Sample #10
+Ground Truth (TR): Kasedin etkisi büyük oldu.
+Whisper Output (TR): Kasedin etkisi büyük oldu.
+------------------------------
+Sample #11
+Ground Truth (TR): Bunun değişmesini beklemiyorum.
+Whisper Output (TR): Bunun değişmesini beklemiyorum.
+------------------------------
+Sample #12
+Ground Truth (TR): Aralarında pek çok mülteci var.
+Whisper Output (TR): Aralarında pek çok mülteci var.
+------------------------------
+Sample #13
+Ground Truth (TR): Bir sonraki ay bir anayasa kabul edildi.
+Whisper Output (TR): Bir sonraki ay bir anayasa kabul edildi.
+------------------------------
+Sample #14
+Ground Truth (TR): Biz realiteyi dikkate alıyoruz.
+Whisper Output (TR): icraat şeyi dikkate alıyoruz.
+------------------------------
+Sample #15
+Ground Truth (TR): Barış müzakereleri hiçbir zaman kolay olmaz.
+Whisper Output (TR): Barış müzakereleri hiçbir zaman kolay olmaz.
+------------------------------
+Sample #16
+Ground Truth (TR): Yaşanan gelişmeler pek çok kimseyi şaşırtıyor.
+Whisper Output (TR): Yaşanan gelişmeler pek çok kimseyi şaşırtıyor.
+------------------------------
+Sample #17
+Ground Truth (TR): Dört yıl sonra dava gün ışığına çıktı.
+Whisper Output (TR): Dört yıl sonra dava gün ışığına çıktı.
+------------------------------
+Sample #18
+Ground Truth (TR): Bağış önerileri açık rekabetle seçiliyor.
+Whisper Output (TR): Bağış önerileri açık rekabetle seçiliyor.
+------------------------------
+Sample #19
+Ground Truth (TR): Proje Mart ayında başlatıldı.
+Whisper Output (TR): Proje Mart ayında başlatıldı.
+------------------------------
+Sample #20
+Ground Truth (TR): Erdoğan eleştirileri reddetti.
+Whisper Output (TR): Erdoğan eleştirileri reddetti.
+------------------------------
+Sample #21
+Ground Truth (TR): Anlaşma bir Ocak'ta yürürlüğe girecek.
+Whisper Output (TR): Anlaşma 1 Ocak'ta yürürlüğe girecek.
+------------------------------
+Sample #22
+Ground Truth (TR): Projeler altı bilimsel alanı kapsıyorlar.
+Whisper Output (TR): Projeler altı bilimsel alanı kaptıyorlar.
+------------------------------
+Sample #23
+Ground Truth (TR): On milletvekili çekimser kaldı.
+Whisper Output (TR): On milletvekili çekimsel kaldı.
+------------------------------
+Sample #24
+Ground Truth (TR): Bundan cumhurbaşkanı bile etkilendi.
+Whisper Output (TR): Bundan Cumhurbaşkanı bile etkilendi.
+------------------------------
+Sample #25
+Ground Truth (TR): Ve bir yıl sonra, bu ay, bu iki kitap basıldı.
+Whisper Output (TR): Ve dediğim sonradan bu ay bu iki kitap basıldı.
+------------------------------
+Sample #26
+Ground Truth (TR): Ortak bölgesel çıkarlarımız da bunu gerektiriyor.
+Whisper Output (TR): Ortak bölgesel çıkarlarımız da bunu gerektiriyor.
+------------------------------
+Sample #27
+Ground Truth (TR): Bu hızlı çözüme rağmen sorunlar hâlâ karışık.
+Whisper Output (TR): Bu hızlı çözüme rağmen sorunlar hala karışık.
+------------------------------
+Sample #28
+Ground Truth (TR): AB projesi en az iki açıdan değerlendirilebilir.
+Whisper Output (TR): AB projesi en az 2 ayçadan değerlendirilebilir.
+------------------------------
+Sample #29
+Ground Truth (TR): Portekiz Salı günü bunu yapan kırk sekizinci ülke oldu.
+Whisper Output (TR): Portekiz, sana bir adım yapan 48. ülke oldu.
+------------------------------
+Sample #30
+Ground Truth (TR): Priştineli bir esnaf dükkan açmaya hazırlanıyor.
+Whisper Output (TR): Riştine'de bir esnaf dükkan açmaya hazırlanıyor.
+------------------------------
+Sample #31
+Ground Truth (TR): Kendimi kötü hissediyorum, ama ne yapabilirsiniz ki?
+Whisper Output (TR): Kendimi kötü hissediyorum. Ama ne yapabilirsiniz?
+------------------------------
+Sample #32
+Ground Truth (TR): Sorunu çözer mi? Hayır.
+Whisper Output (TR): Sorunu çözer miyim? Hayır.
+------------------------------
+Sample #33
+Ground Truth (TR): Balkanlar'da hukuk devleti ilkesi nihayet pekişiyor mu?
+Whisper Output (TR): Balkanlarda hukuk devleti ilkesi nihayet pekişiyor mu?
+------------------------------
+Sample #34
+Ground Truth (TR): Bakarciev daha sonra olaydaki rolünü itiraf etti.
+Whisper Output (TR): Bakar Ciyev daha sonra olaydaki rolünü itiraf etti.
+------------------------------
+Sample #35
+Ground Truth (TR): Ancak bütün haberler de karamsar değil.
+Whisper Output (TR): Ancak bütün haberler de karamsar değil.
+------------------------------
+Sample #36
+Ground Truth (TR): Sadece Bükreş'te bin iki yüz polis memuru açığı var.
+Whisper Output (TR): Sadece Dükreş'te 1200 polis memuru açığı var.
+------------------------------
+Sample #37
+Ground Truth (TR): Bölgede yenilenen işbirliği çözüme katkıda bulunaabilir mi?
+Whisper Output (TR): Bölgede yenilen işbirliğe çözme katkıda bulunabilir mi?
+------------------------------
+Sample #38
+Ground Truth (TR): Kuruluşun geleceği ile ilgili öngörüleriniz neler?
+Whisper Output (TR): Kuruluşun geleceği ile ilgili öngörüleriniz neler?
+------------------------------
+Sample #39
+Ground Truth (TR): Mesajı ileten Hasan'ın gözleri yaşla doldu.
+Whisper Output (TR): Mesajı ileten Hasan'ın gözleri yaşla doldu.
+------------------------------
+Sample #40
+Ground Truth (TR): SC yetkilileri yanıt vermekte gecikmediler.
+Whisper Output (TR): SC yetkilileri yanıt vermekte gecikmediler.
+------------------------------
+Sample #41
+Ground Truth (TR): Bulgar takımı Kıbrıs'ı üç-sıfır yenerek birinci oldu.
+Whisper Output (TR): Bulgar takımı Kıbrıs'ı 3-0 yenerek birinci oldu.
+------------------------------
+Sample #42
+Ground Truth (TR): Ödül iki milyon avro olacak.
+Whisper Output (TR): Ödül 2 milyon avro olacak.
+------------------------------
+Sample #43
+Ground Truth (TR): Turnuvaya on üç ülkeden doksan sporcu katıldı.
+Whisper Output (TR): Turnuvaya 13 ülkeden 90 sporda katıldı.
+------------------------------
+Sample #44
+Ground Truth (TR): Milletvekili sayısı yüz yirmiden yüz otuz üçe çıkacak.
+Whisper Output (TR): Milletvekili sayısı 120'den 193'e çıkacak.
+------------------------------
+Sample #45
+Ground Truth (TR): Eyalet senatosuna da bir ziyaret düzenlendi.
+Whisper Output (TR): Eyalet senatosuna da bir ziyaret düzenlendi.
+------------------------------
+Sample #46
+Ground Truth (TR): Bunun olmasını istemiyoruz.
+Whisper Output (TR): Bunun olmasını istemiyoruz.
+------------------------------
+Sample #47
+Ground Truth (TR): Bu herşeyi açıklıyor.
+Whisper Output (TR): Bu her şeyi açıklıyor.
+------------------------------
+Sample #48
+Ground Truth (TR): Konuttan sonraki öncelik eğitim.
+Whisper Output (TR): Konuttan sonraki öncelik eğitim.
+------------------------------
+Sample #49
+Ground Truth (TR): Pek çoğu da Roman toplumundan geliyor.
+Whisper Output (TR): Pek çoğu da roman toplumundan geliyor.
+------------------------------
+Sample #50
+Ground Truth (TR): Geçiş ülkelerinde yaşananlar ise karışık.
+Whisper Output (TR): Geçiş ülkelerinde yaşananlar ise karışık.
+------------------------------
+Sample #51
+Ground Truth (TR): İranlılar da talebe uydular.
+Whisper Output (TR): İranlılar da talebe uydular.
+------------------------------
+Sample #52
+Ground Truth (TR): Katılanların yaklaşık yüzde kırkı otuz beş yaş altında.
+Whisper Output (TR): Katılanların yaklaşık %40'ı 35 yaş altında.
+------------------------------
+Sample #53
+Ground Truth (TR): Sergiye on dört ülkeden yüz kırk beş sanatçı katıldı.
+Whisper Output (TR): Tergiye 14 ülkeden 25 tane çıkartıldı.
+------------------------------
+Sample #54
+Ground Truth (TR): Romanya erkekler dalında ikinci oldu.
+Whisper Output (TR): Romanya, Erkekler bölümünde ikinci oldu.
+------------------------------
+Sample #55
+Ground Truth (TR): Hızlı ve doğru şekilde hareket etmek zorundaydık.
+Whisper Output (TR): Hızlı ve doğru şekilde hareket etmek zorundaydık.
+------------------------------
+Sample #56
+Ground Truth (TR): Merkez bankasının başlıca amacı düşük enflasyon.
+Whisper Output (TR): Merkez Bankası'nın başlayacağı amacı düşük enflasyon.
+------------------------------
+Sample #57
+Ground Truth (TR): Böl. bin bir ve bin otuz uyarınca cezalandırılabilir.
+Whisper Output (TR): Böl 1001 ve 10030 uyarınca cezalandırılabilir.
+------------------------------
+Sample #58
+Ground Truth (TR): Peki sonuç ne oldu?
+Whisper Output (TR): Peki sonuç ne oldu?
+------------------------------
+Sample #59
+Ground Truth (TR): Ancak bu hareketi eleştirenler de var.
+Whisper Output (TR): Ancak bu hareketleri eşleştirenler de var.
+------------------------------
+Sample #60
+Ground Truth (TR): Kosteliç efsanesi çok büyük bir efsane.
+Whisper Output (TR): Kostelik efsanesi çok büyük bir efsane.
+------------------------------
+Sample #61
+Ground Truth (TR): Diğer altı adayın her biri yüzde birin altında oy aldı.
+Whisper Output (TR): Diğer 6 adayın her biri %1'in altında oy aldı.
+------------------------------
+Sample #62
+Ground Truth (TR): Moskova da olaya karıştı.
+Whisper Output (TR): Moskova'da olaya karıştı.
+------------------------------
+Sample #63
+Ground Truth (TR): Gayet iddialıyız.
+Whisper Output (TR): Gayet indalıyız.
+------------------------------
+Sample #64
+Ground Truth (TR): Beş göstericinin silah taşıdığı iddia ediliyor.
+Whisper Output (TR): 5 göstericinin silah taşıdığı iddia ediliyor.
+------------------------------
+Sample #65
+Ground Truth (TR): Kitaptaki kişi ben olabilirdim.
+Whisper Output (TR): Kitap takı. Keşe ben ona belirledim.
+------------------------------
+Sample #66
+Ground Truth (TR): Bakanlar Kosova konusunda da konuştular.
+Whisper Output (TR): Bakanlar Kosova konuştuğunda da konuştular.
+------------------------------
+Sample #67
+Ground Truth (TR): Zarar yüz otuz dört milyon avro kadar tahmin ediliyor.
+Whisper Output (TR): Zarar 134 milyon euro kadar tahmin ediliyor.
+------------------------------
+Sample #68
+Ground Truth (TR): Karadağ ise sıfır virgül altmış üç ile en düşük puanı aldı.
+Whisper Output (TR): Karadağ ise 0,63 ile düşük puan aldı.
+------------------------------
+Sample #69
+Ground Truth (TR): Slovenya iki bin sekiz yılında Kosova'yı tanımıştı.
+Whisper Output (TR): Slovenya 2008 yılında Kosova'yı tanımıştı.
+------------------------------
+Sample #70
+Ground Truth (TR): Kısmi bir çözüm ayakta kalamaz.
+Whisper Output (TR): Kısmi bir çözüm ayakta kalamaz.
+------------------------------
+Sample #71
+Ground Truth (TR): DiCarlo da bu sözleri tekrarladı.
+Whisper Output (TR): Di Carlo da bu sözleri tekrarladı.
+------------------------------
+Sample #72
+Ground Truth (TR): Kosova'da herkes buna katılmıyor.
+Whisper Output (TR): Kosova'da herkes buna katılmıyor.
+------------------------------
+Sample #73
+Ground Truth (TR): Carrefour'un ülkede altı mağazası bulunuyor.
+Whisper Output (TR): Carrefour'un ülkede altın mağazası bulunuyor.
+------------------------------
+Sample #74
+Ground Truth (TR): Ne tür tepkiler aldınız?
+Whisper Output (TR): Ne tür tepkiler aldınız?
+------------------------------
+Sample #75
+Ground Truth (TR): Kadare'nin eserleri kırktan fazla ülkede çevrildi.
+Whisper Output (TR): Kadare'nin eserleri 40'tan fazla ülkede çevrildi.
+------------------------------
+Sample #76
+Ground Truth (TR): Mevcut sayı altı bin üç yüz civarında.
+Whisper Output (TR): Mevcut sayı 6300 civarında.
+------------------------------
+Sample #77
+Ground Truth (TR): Emekli aylığımızla ne satın alabiliriz?
+Whisper Output (TR): Emekli aylığımızla ne satın alabiliriz?
+------------------------------
+Sample #78
+Ground Truth (TR): Sırp siyasiler tepki göstermekte gecikmediler.
+Whisper Output (TR): Sırp siyasiler tepki göstermekte gecikmediler.
+------------------------------
+Sample #79
+Ground Truth (TR): Kabaşi mahkemeye saygısızlıkla suçlandı.
+Whisper Output (TR): Kabaşi mahkemeye saygısızlıkla suçlandı.
+------------------------------
+Sample #80
+Ground Truth (TR): Ülke belgeyi hazırlamaya başladı bile.
+Whisper Output (TR): Ülke belgeyi hazırlamaya başladı bile.
+------------------------------
+Sample #81
+Ground Truth (TR): Eşit konumda değilsiniz.
+Whisper Output (TR): Eşit konumda değilsiniz.
+------------------------------
+Sample #82
+Ground Truth (TR): Ardelean tartışmalı bir seçimdi.
+Whisper Output (TR): Ardeleya'nın tartışmalı bir seçimi.
+------------------------------
+Sample #83
+Ground Truth (TR): Bu bir ön şart.
+Whisper Output (TR): Bu bir önçak.
+------------------------------
+Sample #84
+Ground Truth (TR): Yardımın varış noktası sorun yaratıyor.
+Whisper Output (TR): Yardımım varış noktası sorun yaratıyor.
+------------------------------
+Sample #85
+Ground Truth (TR): Diğer beş adayın daha da az oy alması bekleniyor.
+Whisper Output (TR): Diğer 5 adayın daha az oy alması bekleniyor.
+------------------------------
+Sample #86
+Ground Truth (TR): Afrika dünya.
+Whisper Output (TR): Afrika dünya
+------------------------------
+Sample #87
+Ground Truth (TR): Tabii bu her zaman kolay olmuyor.
+Whisper Output (TR): Tabi bu her zaman kolay olmuyor.
+------------------------------
+Sample #88
+Ground Truth (TR): Bu uygulamaları gerçekleştiriyoruz.
+Whisper Output (TR): Bu uygulamaları gerçekleştiriyoruz.
+------------------------------
+Sample #89
+Ground Truth (TR): Soruşturma bir yıl kadar sürebilir.
+Whisper Output (TR): Soruşturma 1 yıl kadar sürebilir.
+------------------------------
+Sample #90
+Ground Truth (TR): Bugüne kadar eyalette tespit edilen vaka yok.
+Whisper Output (TR): Bugüne kadar eyalete tespit edilen vaka yok.
+------------------------------
+Sample #91
+Ground Truth (TR): Fonların sekiz milyon avroluk bölümü hemen verilecek.
+Whisper Output (TR): Fonların 8 milyon avroluk bölümü hemen verilecek.
+------------------------------
+Sample #92
+Ground Truth (TR): Kosova'da altı hafta önce nüfus sayımı yapıldı.
+Whisper Output (TR): Kosova'da 6 hafta önce nüfus sayımı yapıldı.
+------------------------------
+Sample #93
+Ground Truth (TR): Maçı İngiltere iki-bir kazandı.
+Whisper Output (TR): Maçı İngiltere 2-1 kazandı.
+------------------------------
+Sample #94
+Ground Truth (TR): Ayrıca güzel manzaralı bir balkonu da var.
+Whisper Output (TR): Ayrıca güzel manzaralı bir balkonu da var.
+------------------------------
+Sample #95
+Ground Truth (TR): Bu yorumlar Lahey tarafından hoş karşılanmadı.
+Whisper Output (TR): Bu yorumlar Lahey tarafından hoş karşılanmadı.
+------------------------------
+Sample #96
+Ground Truth (TR): Fuar dört, on Mayıs tarihleri arasında gerçekleşti.
+Whisper Output (TR): Fuar 4-10 Mayıs tarihleri arasında gerçekleşti.
+------------------------------
+Sample #97
+Ground Truth (TR): Gün boyunca aileler birbirlerini ziyaret ederler.
+Whisper Output (TR): Gün boyunca aileler birbirlerini ziyaret ederler.
+------------------------------
+Sample #98
+Ground Truth (TR): Maras finalde on beş bin üç yüz yetmiş beş puan topladı.
+Whisper Output (TR): Maras finalde 15.375 puan topladı.
+------------------------------
+Sample #99
+Ground Truth (TR): Beş yıldızlı bir eğitim kampı!
+Whisper Output (TR): 5 Yıldızlı Bir Eğitim Kampı
+------------------------------
+Sample #100
+Ground Truth (TR): Etkinlik yirmi sekiz Eylül'e kadar devam edecek.
+Whisper Output (TR): Etkinlik 28 Eylül'e kadar devam edecek.
+------------------------------
