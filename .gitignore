@@ -1,10 +1,10 @@
 *-cv-corpus-*
 ready_covost_dataset/
 hazir_covost_verisi/
-test_outputs/
+# test_outputs/
+*_results/
 *.tsv
 .vscode/
-*.log
 *.json
 *.csv
 *.ckpt
