@@ -1,52 +1,49 @@
-import torch
+import random
+
 import librosa
+import torch
 from datasets import load_from_disk
-from transformers import SpeechEncoderDecoderModel, AutoFeatureExtractor, AutoTokenizer
+
+from e2e_common import (
+    DATASET_PATH,
+    E2E_BEST_MODEL_DIR,
+    generation_kwargs,
+    load_processors_for_inference,
+    load_trained_e2e_model,
+)
+
 
 def main():
     print("--- MODEL DIAGNOSTIC TEST ---")
-    
-    model_path = "./e2e_full_results/best_model"
-    encoder_id = "facebook/wav2vec2-large-xlsr-53"
-    decoder_id = "Helsinki-NLP/opus-mt-tr-en"
 
-    # Yüklemeler
-    extractor = AutoFeatureExtractor.from_pretrained(encoder_id)
-    tokenizer = AutoTokenizer.from_pretrained(decoder_id)
-    model = SpeechEncoderDecoderModel.from_pretrained(model_path).to("cuda:0")
+    extractor, tokenizer = load_processors_for_inference(E2E_BEST_MODEL_DIR)
+    model = load_trained_e2e_model(E2E_BEST_MODEL_DIR, device="cuda:0")
 
-    # --- HAYAT KURTARAN DÜZELTME (THE LIFESAVER FIX) ---
-    # Hugging Face'in yüklemeyi unuttuğu LM_HEAD (Ağız) ağırlığını, 
-    # modelin kendi içindeki kelime dağarcığından kopyalayarak yerine takıyoruz:
-    model.decoder.lm_head.weight = model.decoder.model.decoder.embed_tokens.weight
-    # ---------------------------------------------------
+    dataset = load_from_disk(str(DATASET_PATH))
+    n = min(5, len(dataset))
+    if len(dataset) >= n:
+        indices = random.sample(range(len(dataset)), n)
+    else:
+        indices = list(range(len(dataset)))
 
-    # İlk veriyi çek
-    dataset = load_from_disk("ready_covost_dataset")
+    gen_args = generation_kwargs(model)
 
-    for _ in range(5):
-    
-        sample = dataset[_]
-
-        # Sesi hazırla
+    for idx in indices:
+        sample = dataset[idx]
         audio, _ = librosa.load(sample["audio_path"], sr=16000)
         inputs = extractor(audio, sampling_rate=16000, return_tensors="pt").to("cuda:0")
 
-        # Çeviri üret
         with torch.no_grad():
-            out = model.generate(
-                inputs["input_values"], 
-                max_length=50,
-                decoder_start_token_id=tokenizer.pad_token_id
-            )
+            out = model.generate(inputs["input_values"], **gen_args)
 
-        # Çıktıları karşılaştır
         prediction = tokenizer.decode(out[0], skip_special_tokens=True)
-        
-        print("\n" + "="*50)
+
+        print("\n" + "=" * 50)
+        print(f"SAMPLE INDEX              : {idx}")
         print("GERÇEK İNGİLİZCE ÇEVİRİ :", sample["translation"])
         print("MODELİN ÜRETTİĞİ ÇIKTI  :", f"'{prediction}'")
-        print("="*50 + "\n")
+        print("=" * 50 + "\n")
+
 
 if __name__ == "__main__":
     main()
