@@ -5,6 +5,8 @@ hazir_covost_verisi/
 *_results/
 *.tsv
 .vscode/
+*.json
+*.csv
 *.ckpt
 *.pt
 *.bin
