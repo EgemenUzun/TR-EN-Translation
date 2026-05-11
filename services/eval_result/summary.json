@@ -1,0 +1,7 @@
+{
+  "model_path": "./e2e_v2_results/best_model",
+  "num_samples": 100,
+  "bleu": 1.6609,
+  "chrf": 16.5794,
+  "num_beams": 4
+}

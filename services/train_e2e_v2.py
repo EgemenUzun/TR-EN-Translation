@@ -80,12 +80,27 @@ def build_model(tokenizer: AutoTokenizer) -> SpeechEncoderDecoderModel:
         if model.enc_to_dec_proj.bias is not None:
             torch.nn.init.zeros_(model.enc_to_dec_proj.bias)
 
-    # Freeze entire encoder — only bridge + decoder trains
+    # Freeze CNN feature extractor + bottom 18 transformer layers.
+    # Unfreeze top 6 layers + layer_norm so the encoder can adapt to the
+    # translation task instead of just outputting fixed speech representations.
     for param in model.encoder.parameters():
         param.requires_grad = False
 
+    enc = model.encoder.wav2vec2 if hasattr(model.encoder, "wav2vec2") else model.encoder
+    unfreeze_targets = []
+    if hasattr(enc, "encoder") and hasattr(enc.encoder, "layers"):
+        unfreeze_targets += list(enc.encoder.layers[-6:])
+    if hasattr(enc, "encoder") and hasattr(enc.encoder, "layer_norm"):
+        unfreeze_targets.append(enc.encoder.layer_norm)
+    if hasattr(enc, "feature_projection"):
+        unfreeze_targets.append(enc.feature_projection)
+    for module in unfreeze_targets:
+        for param in module.parameters():
+            param.requires_grad = True
+
     # Gradient checkpointing saves ~30% VRAM
     model.decoder.gradient_checkpointing_enable()
+    model.encoder.gradient_checkpointing_enable()
 
     return model
 
@@ -157,11 +172,11 @@ def main():
         output_dir=OUTPUT_DIR,
         per_device_train_batch_size=4,
         gradient_accumulation_steps=4,          # Effective batch = 16
-        learning_rate=1e-4,                     # Bridge starts from scratch, needs higher LR
+        learning_rate=5e-5,                     # Lower LR — encoder top layers are pre-trained
         lr_scheduler_type="cosine",
-        warmup_steps=1000,                      # More warmup — bridge is cold, needs gentle start
+        warmup_steps=2000,                      # Longer warmup — more params, needs gentle start
         max_grad_norm=1.0,
-        num_train_epochs=5,
+        num_train_epochs=15,
         bf16=True,                              # bf16 has no scaler — avoids "unscale FP16 gradients" crash with frozen encoder
         eval_strategy="epoch",
         save_strategy="epoch",
@@ -191,7 +206,7 @@ def main():
     resume_path = resume.split("=", 1)[1] if resume else None
 
     print("\n" + "=" * 55)
-    print("STARTING E2E TRAINING v2 (encoder frozen, 5 epochs)")
+    print("STARTING E2E TRAINING v2 (top-6 encoder layers unfrozen, 10 epochs)")
     if resume_path:
         print(f"Resuming from: {resume_path}")
     print("=" * 55)

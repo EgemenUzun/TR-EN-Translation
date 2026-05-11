@@ -6,7 +6,7 @@ from transformers import SpeechEncoderDecoderModel, AutoFeatureExtractor, AutoTo
 def main():
     print("--- MODEL DIAGNOSTIC TEST ---")
     
-    model_path = "./e2e_full_results/best_model"
+    model_path = "./e2e_v2_results/best_model"
     encoder_id = "facebook/wav2vec2-large-xlsr-53"
     decoder_id = "Helsinki-NLP/opus-mt-tr-en"
 
